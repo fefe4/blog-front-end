@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import menu2 from './assets/images/menu2.png';
 import Home from './components/home';
+import Blog from './components/blog';
 import React from "react";
 
 
@@ -19,8 +20,8 @@ const Routes = () => {
         </ul>
       </nav>
       <Switch>
+        <Route path="/blogs/:id" component={Blog}/>;
         <Route path="/" component={Home} />
-    
         
         {/* <Route path="/profile" component={Profile} /> */}
       </Switch>
