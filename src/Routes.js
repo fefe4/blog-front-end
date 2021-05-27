@@ -22,7 +22,16 @@ const Routes = () => {
       <Switch>
         <Route path="/blogs/:id" component={Blog}/>;
         <Route path="/" component={Home} />
-        
+        {/*To-do Route post blog*/} 
+        {/*To-do Route edit blog*/} 
+        {/*To-do Route delete blog*/}
+ 
+        {/*To-do Route users*/}
+        {/*To-do Route users sign up*/}
+        {/*To-do Route users Log in*/}
+        {/*To-do Route users Log Out*/} 
+
+
         {/* <Route path="/profile" component={Profile} /> */}
       </Switch>
     </BrowserRouter>
