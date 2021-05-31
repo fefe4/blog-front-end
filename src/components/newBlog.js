@@ -5,7 +5,7 @@ const NewBlog = () => {
                 <label for="title">Title</label>
                 <input name="title" type="text" />
                 <label for="description">Description</label>
-                <input name="descriptioN" type="text" />
+                <input name="description" type="text" />
                 <label for="body">Body</label>
                 <input name="body" type="text" />
                 <button>Submit</button>
@@ -13,3 +13,5 @@ const NewBlog = () => {
         </main>
     )
 }
+
+export default NewBlog
