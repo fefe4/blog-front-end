@@ -19,17 +19,17 @@ const Blog = ({ match }) => {
     console.log(blog);
     setBlog(blog);
   };
-
+  const actionForm = `http://localhost:4000/api/blogs/${match.params.id}`
   return (
     <main className="">
       {hasEditBeenPressed 
-      ? <form action="http://localhost:4000/api/blogs" method="POST">
+      ? <form action={actionForm} method="PUT">
           <label for="title">Title</label>
-          <input name="title" type="text" value={blog.title}/>
+          <input name="title" type="text" placeholder={blog.title}/>
           <label for="description">Description</label>
-          <input name="description" value={blog.description} type="text" />
+          <input name="description" placeholder={blog.description} type="text" />
           <label for="body">Body</label>
-          <input name="body" type="text" value={blog.body}/>
+          <input name="body" type="text" placeholder={blog.body}/>
           <button>Submit</button>
         </form>
       : <div>
