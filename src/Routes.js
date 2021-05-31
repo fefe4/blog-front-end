@@ -4,6 +4,7 @@ import menu2 from './assets/images/menu2.png';
 import Home from './components/home';
 import Blog from './components/blog';
 import NewBlog from './components/newBlog';
+import EditBlog from './components/editBlog';
 import React from "react";
 
 
@@ -21,9 +22,11 @@ const Routes = () => {
         </ul>
       </nav>
       <Switch>
-        <Route path="/blogs/new" component={NewBlog}/>
-        <Route path="/blogs/:id" component={Blog}/>;
-        <Route path="/" component={Home} />
+        <Route exact path="/blogs/new" component={NewBlog}/>
+        <Route exact path="blogs/:id/edit" component={EditBlog} />
+        <Route exact path="/blogs/:id" component={Blog}/>;
+        <Route exact path="/" component={Home} />
+
         {/*To-do Route post blog*/} 
         {/*To-do Route edit blog*/} 
         {/*To-do Route delete blog*/}
