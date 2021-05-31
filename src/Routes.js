@@ -22,6 +22,7 @@ const Routes = () => {
       <Switch>
         <Route path="/blogs/:id" component={Blog}/>;
         <Route path="/" component={Home} />
+        <Route path="/blogs/new"/>
         {/*To-do Route post blog*/} 
         {/*To-do Route edit blog*/} 
         {/*To-do Route delete blog*/}
