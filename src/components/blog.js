@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 
 const Blog = ({ match }) => {
   
-  console.log(match);
-  console.log(match.params.id)
-
   useEffect(() => {
     fetchBlog();
   }, []);
@@ -13,17 +10,36 @@ const Blog = ({ match }) => {
   const [hasEditBeenPressed, setHasEditBeenPressed] = useState (true)
   const fetchBlog = async () => {
     const data = await fetch(`http://localhost:4000/api/blogs/${match.params.id}`);
-    console.log(data);
     const blogApi = await data.json();
     const blog = blogApi.blog_;
-    console.log(blog);
     setBlog(blog);
   };
-  const actionForm = `http://localhost:4000/api/blogs/${match.params.id}`
+
+const actionForm = `http://localhost:4000/api/blogs/${match.params.id}`
+
+ //put requests don't work for windows.
+ const editBlog = (e) => {
+  e.preventDefault();
+  // PUT request using fetch with async/await
+  async function updatePost() {
+      const requestOptions = {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title: 'React Hooks PUT Request Example', body:"lalalala", description:"loloolo"})
+      };
+      const response = await fetch(`${actionForm}`, requestOptions);
+      const data = await response.json();
+      console.log(data)
+  }
+  updatePost();
+}
+
+
+  
   return (
     <main className="">
       {hasEditBeenPressed 
-      ? <form action={actionForm} method="PUT">
+      ? <form onSubmit={editBlog}>
           <label for="title">Title</label>
           <input name="title" type="text" placeholder={blog.title}/>
           <label for="description">Description</label>
