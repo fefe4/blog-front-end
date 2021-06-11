@@ -63,9 +63,24 @@ const Blog = ({ match }) => {
     updatePost();
   };
 
+  const deleteBlog = (e) => {
+    e.preventDefault();
+    // PUT request using fetch with async/await
+    async function updatePost() {
+      const requestOptions = {
+        method: "DELETE",
+      };
+      const response = await fetch(`${actionForm}`, requestOptions);
+      const data = await response.json();
+      console.log(data);
+    }
+    updatePost();
+  };
+
   return (
     <main className="">
       <button onClick={activateEditMode}>Edit</button>
+      <button onClick={deleteBlog}>Delete Blog</button>
       {hasEditBeenPressed ? (
         <form onSubmit={editBlog}>
           <label for="title">Title</label>
